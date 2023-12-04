@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %} 
+Contact Us 
+{% endblock %} 
+  
+
+{% block content %} 
+
+<h2>Contact Us</h2> 
+
+<div class="box">
+<form method="POST" action="{{ url_for('result') }}"> 
+	<h1>Name:</h1>	
+	<input type="text" name="fullname" />
+	<h2>Email:</h2>
+	<input type="text" name="email" />
+	<h1>Message:</h1>
+	<input type="text" name="message" />
+	<br><br><input type="submit">
+</form> 
+</div>
+{% endblock %}
