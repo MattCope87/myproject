@@ -14,15 +14,22 @@ def create_app(test_config=None):
         # load the test config if passed in
 		app.config.from_mapping(test_config)
 	try:
-    	os.makedirs(app.instance_path)
-
-    # ensure the instance folder exists
+		os.makedirs(app.instance_path)
 	except OSError:
-        pass
+		pass
 	
-	@app.route('/home')
-	def home():
-		return 'Hello Hello'
+	@app.route("/", methods=["GET"]) 
+	def home(): 
+		return render_template('contact.html')
+
+	@app.route("/result", methods=["POST"]) 
+	def result(): 
+	# append to data container
+		data = [request.form['fullname'], request.form['email'], request.form['message']]
+	#global_data.append(data)
+		fullname = request.form['fullname']
+	
+		return render_template('result.html', data = data)
 
 	from . import db
 	db.init_app(app)
