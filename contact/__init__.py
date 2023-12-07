@@ -20,7 +20,7 @@ def create_app(test_config=None):
 
 	@app.route('/')
 	def hello():
-		return 'Hello Worldnaaa!'
+		return 'Hello World!'
 	
 	@app.route("/home", methods=["GET"]) 
 	def home():
@@ -31,7 +31,7 @@ def create_app(test_config=None):
 	# append to data container
 		data = [request.form['fullname'], request.form['email'], request.form['message']]
 	#global_data.append(data)
-		fullname = request.form['fullname']
+		
 	
 		return render_template('result.html', data = data)
 	from . import db
