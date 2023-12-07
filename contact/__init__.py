@@ -17,9 +17,13 @@ def create_app(test_config=None):
 		os.makedirs(app.instance_path)
 	except OSError:
 		pass
+
+	@app.route('/')
+	def hello():
+		return 'Hello Worldnaaa!'
 	
-	@app.route("/", methods=["GET"]) 
-	def home(): 
+	@app.route("/home", methods=["GET"]) 
+	def home():
 		return render_template('contact.html')
 
 	@app.route("/result", methods=["POST"]) 
@@ -30,11 +34,10 @@ def create_app(test_config=None):
 		fullname = request.form['fullname']
 	
 		return render_template('result.html', data = data)
-
 	from . import db
 	db.init_app(app)
- 
 	return app
+
 
 # @app.route("/", methods=["GET"]) 
 # def home(): 
