@@ -6,14 +6,15 @@ Contact Us
   
 
 {% block content %} 
-
-<h2>Contact Us</h2> 
-
+<div>
+<h2>Contact us</h2> 
+<div>
+	
 <div class="box">
-<form method="POST" action="{{ url_for('result') }}"> 
+<form method="POST" action="{{ url_for('result') }}">	 
 	<h1>Name:</h1>	
 	<input type="text" name="fullname" />
-	<h2>Email:</h2>
+	<h1>Email:</h1>
 	<input type="text" name="email" />
 	<h1>Message:</h1>
 	<input type="text" name="message" />
